@@ -15,24 +15,20 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Choice',
+            name='Event',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('choice_text', models.CharField(max_length=200)),
-                ('votes', models.IntegerField(default=0)),
+                ('name', models.CharField(default='New Event', max_length=200)),
+                ('description', models.CharField(blank=True, max_length=2000)),
+                ('date', models.DateTimeField(verbose_name='date hosted')),
             ],
         ),
         migrations.CreateModel(
-            name='Question',
+            name='Tag',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('question_text', models.CharField(max_length=200)),
-                ('pub_date', models.DateTimeField(verbose_name='date published')),
+                ('name', models.CharField(default='New Tag', max_length=200)),
+                ('events', models.ManyToManyField(to='adventure.Event')),
             ],
-        ),
-        migrations.AddField(
-            model_name='choice',
-            name='question',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='adventure.Question'),
         ),
     ]
