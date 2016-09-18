@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'accounts',
     'adventure',
+    'django_alexa',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
