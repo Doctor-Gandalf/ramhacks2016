@@ -10,7 +10,7 @@ class Event(models.Model):
     name = models.CharField(max_length=200, default='New Event')
     description = models.CharField(max_length=2000, blank=True)
     date = models.DateTimeField('date hosted')
-
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     @python_2_unicode_compatible
     def __str__(self):
         return str(self.name)
@@ -23,3 +23,13 @@ class Tag(models.Model):
     @python_2_unicode_compatible
     def __str__(self):
         return self.name
+
+class Address(models.Model):
+    street = models.TextField()
+    city = models.TextField()
+    state = models.TextField()
+    zipcode = models.TextField()
+
+    @python_2_unicode_compatible
+    def __str__(self):
+        return self.street
