@@ -3,15 +3,6 @@ from datetime import timedelta
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 
-class Address(models.Model):
-    street = models.TextField()
-    city = models.TextField()
-    state = models.TextField()
-    zipcode = models.TextField()
-
-    @python_2_unicode_compatible
-    def __str__(self):
-        return self.street
 
 class Address(models.Model):
     street = models.TextField()
