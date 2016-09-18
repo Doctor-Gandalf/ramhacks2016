@@ -6,3 +6,7 @@ from django.urls import reverse
 from django.db.models import F
 from django.contrib.auth import authenticate, login
 
+
+@login_required(login_url='accounts/login')
+def home(request, a):
+    return render(request, 'adventure/home.html')
